@@ -8,26 +8,49 @@ Personalized, mass email sending can be offloaded to PostageApp via the JSON bas
 
 Installation
 ------------
- - Put `postage.php` into `app/controllers/components/`
- - Edit `components/postage.php` to include your PostageApp Project API key. (At the top of `postage.php`)
+
+_Manual_
+
+- Download this: http://github.com/postageapp/postageapp-cakephp/zipball/master
+- Unzip that download.
+- Copy the resulting folder to app/plugins
+- Rename the folder you just copied to `postage`
+
+_GIT Submodule_
+
+In your app directory type:
+<pre><code>git submodule add git://github.com/postageapp/postageapp-cakephp.git plugins/postage
+git submodule init
+git submodule update
+</code></pre>
+
+_GIT Clone_
+
+In your plugin directory type
+<pre><code>git clone git://github.com/postageapp/postageapp-cakephp.git postage</code></pre>
 
 Usage
 -----
 PostageApp for CakePHP works very similarly to built-in EmailComponent. Here's a simple example (in a controller):
 
-    var $components = array('Postage');
+    var $components = array('Postage.Postage' => array(
+        'api_key' => POSTAGEAPP_KEY
+        'postage_uri' => POSTAGEAPP_URI,
+    ));
     
-    $this->Postage->from = 'sender@test.test';
-    $this->Postage->to = 'recipient@test.test';
-    $this->Postage->subject = 'Example Email';
-    $this->Postage->htmlMessage = '<strong>Example Message</strong>';
-    $this->Postage->textMessage = 'Example Message';
-    $this->Postage->attachments = array('/path/to/a/file.ext', '/path/to/a/file2.ext');
+    function send() {
+        $this->Postage->from = 'sender@test.test';
+        $this->Postage->to = 'recipient@test.test';
+        $this->Postage->subject = 'Example Email';
+        $this->Postage->htmlMessage = '<strong>Example Message</strong>';
+        $this->Postage->textMessage = 'Example Message';
+        $this->Postage->attachments = array('/path/to/a/file.ext', '/path/to/a/file2.ext');
     
-    $this->Postage->template = 'test-template';
-    $this->Postage->variables = array('variable' => 'value');
+        $this->Postage->template = 'test-template';
+        $this->Postage->variables = array('variable' => 'value');
     
-    $this->Postage->send(); # returns JSON response from the server
+        $this->Postage->send(); # returns JSON response from the server
+    }
     
 Recipients can be specified in a number of ways. Here's how you define a list of them with variables attached:
 
