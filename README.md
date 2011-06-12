@@ -14,7 +14,7 @@ _Manual_
 - Download this: http://github.com/postageapp/postageapp-cakephp/zipball/master
 - Unzip that download.
 - Copy the resulting folder to app/plugins
-- Rename the folder you just copied to @postage@
+- Rename the folder you just copied to `postage`
 
 _GIT Submodule_
 
