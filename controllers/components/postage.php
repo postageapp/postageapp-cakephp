@@ -70,7 +70,7 @@ class PostageComponent extends Object {
 			'header' => array(
 				'Accept' => 'application/json',
 				'Content-Type' => 'application/json',
-				'User-Agent: PostageApp CakePHP ' . POSTAGEAPP_VERSION . ' (CakePHP ' . Configure::read('Cake.version') . ', PHP ' . phpversion() . ')'
+				'User-Agent' => 'PostageApp CakePHP ' . POSTAGEAPP_VERSION . ' (CakePHP ' . Configure::version() . ', PHP ' . phpversion() . ')'
 			),
 		);
 
