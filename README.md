@@ -34,8 +34,7 @@ Usage
 PostageApp for CakePHP works very similarly to built-in EmailComponent. Here's a simple example (in a controller):
 
     var $components = array('Postage.Postage' => array(
-        'api_key' => POSTAGEAPP_KEY
-        'postage_uri' => POSTAGEAPP_URI,
+        'api_key' => 'PLEASE CHANGE ME TO YOUR PROJECT API KEY',
     ));
     
     function send() {

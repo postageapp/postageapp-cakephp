@@ -1,8 +1,6 @@
 <?php
 
 define ('POSTAGEAPP_VERSION', '1.0.0');
-
-define ('POSTAGEAPP_APIKEY', 'PLEASE CHANGE ME TO YOUR PROJECT API KEY');
 define ('POSTAGEAPP_URI', 'https://api.postageapp.com/v.1.0/send_message.json');
 
 /**
@@ -33,7 +31,7 @@ class PostageComponent extends Object {
 	var $htmlMessage = null;
 	
 	/**
-	 * Initialize the Postage component and grab the API key from the config files
+	 * Initialize the Postage component and grab the API key from the component settings
 	 * and the PostageApp API URI from the definitions above 
 	 *
 	 * @param object $controller Instantiating controller
@@ -41,11 +39,8 @@ class PostageComponent extends Object {
 	 */
 	function initialize(&$controller, $settings = array()) {
 		$this->Controller =& $controller;
-		/*if (Configure::read('PostageApp.api_key') !== null) {
-			$this->api_key = Configure::read('PostageApp.api_key');
-		}*/
 		$this->api_key = $settings['api_key'];
-		$this->postage_uri = $settings['postage_uri'];
+		$this->postage_uri = POSTAGEAPP_URI;
 	}
 
 	/**
