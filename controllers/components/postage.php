@@ -44,8 +44,8 @@ class PostageComponent extends Object {
 		/*if (Configure::read('PostageApp.api_key') !== null) {
 			$this->api_key = Configure::read('PostageApp.api_key');
 		}*/
-		$this->api_key = POSTAGEAPP_APIKEY;
-		$this->postage_uri = POSTAGEAPP_URI;
+		$this->api_key = $settings['api_key'];
+		$this->postage_uri = $settings['postage_uri'];
 	}
 
 	/**
